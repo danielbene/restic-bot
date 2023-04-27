@@ -11,7 +11,7 @@ type Config struct {
 	Look        []string `mapstructure:"color"`
 }
 
-func ParseYml(f []byte) Config {
+func ParseYml(f []byte) *Config {
 	var conf Config
 	var raw interface{}
 
@@ -24,5 +24,5 @@ func ParseYml(f []byte) Config {
 		panic(err)
 	}
 
-	return conf
+	return &conf
 }

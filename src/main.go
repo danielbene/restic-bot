@@ -1,7 +1,5 @@
 package main
 
-// https://betterprogramming.pub/parsing-and-creating-yaml-in-go-crash-course-2ec10b7db850
-
 import (
 	"fmt"
 	"os"
@@ -9,10 +7,11 @@ import (
 )
 
 func main() {
-	f, err := os.ReadFile("test.yml")
+	f, err := os.ReadFile("config.yml")
 	util.CheckError(err)
 
-	var conf = util.ParseYml(f)
+	var conf = *util.ParseYml(f)
 
 	fmt.Printf("%+v\n", conf)
+	fmt.Println(conf.Look)
 }
